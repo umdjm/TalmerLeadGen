@@ -44,7 +44,7 @@ class LeadsController < ApplicationController
   def create
     @lead = Lead.new(params[:lead])
     if Referrer.where(url: request.referrer).length == 0
-      render json: "{ 'error': 'Bad Referrer'}", status: :unprocessable_entity 
+      render json: "{ 'error': 'Bad Referrer' 'referrer' : '" + request.referrer + "'}", status: :unprocessable_entity 
     else    
       respond_to do |format|
         if @lead.save
