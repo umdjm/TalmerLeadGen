@@ -1,0 +1,28 @@
+<h1>Leads</h1>
+<div id="lists" class="row">
+  <div class="span12">
+    <table class="list table table-striped table-bordered" >
+      <thead>
+        <th>Email</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Created Date</th>
+        <th>Edit</th>
+        <th>Destroy</th>
+      </thead>
+
+    <% @leads.each do |lead| %>
+      <tr>
+        <td><%= lead.email %></td>
+        <td><%= lead.firstname %></td>
+        <td><%= lead.lastname %></td>
+        <td><%= lead.created_at.to_formatted_s(:long)     %></td>
+        <td><%= link_to 'Edit', edit_lead_path(lead) %></td>
+        <td><%= link_to 'Destroy', lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>
+
+<%= link_to 'New Lead', new_lead_path %>
