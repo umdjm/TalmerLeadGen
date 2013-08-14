@@ -1,5 +1,6 @@
 TalmerLeadgen::Application.routes.draw do
   get "sessions/new"
+  get "static_pages/index"
 
   resources :leads
   resources :users

@@ -1,6 +1,6 @@
 class LeadsController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token, :only => :new
+  skip_before_filter :verify_authenticity_token, :only => [:create]
   before_filter :authorize
 
   def index
@@ -43,14 +43,17 @@ class LeadsController < ApplicationController
   # POST /leads.json
   def create
     @lead = Lead.new(params[:lead])
-
-    respond_to do |format|
-      if @lead.save
-        format.html { redirect_to @lead, notice: 'Lead was successfully created.' }
-        format.json { render json: @lead, status: :created, location: @lead }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @lead.errors, status: :unprocessable_entity }
+    if Referrer.where(url: request.referrer).length == 0
+      render json: "{ 'error': 'Bad Referrer'}", status: :unprocessable_entity 
+    else    
+      respond_to do |format|
+        if @lead.save
+          format.html { redirect_to @lead, notice: 'Lead was successfully created.' }
+          format.json { render json: @lead, status: :created, location: @lead }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @lead.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
