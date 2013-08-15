@@ -126,6 +126,7 @@ DEPENDENCIES
   haml
   jquery-rails
   less-rails
+  mail
   pg
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
