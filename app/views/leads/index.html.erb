@@ -3,10 +3,13 @@
   <div class="span12">
     <table class="list table table-striped table-bordered" >
       <thead>
+        <th>Branch</th>
         <th>Email</th>
         <th>Firstname</th>
         <th>Lastname</th>
         <th>Address</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
         <th>Zip</th>
         <th>Phone</th>
         <th>Created Date</th>
@@ -16,10 +19,13 @@
 
     <% @leads.each do |lead| %>
       <tr>
+        <td><%= lead.branch %></td>
         <td><%= lead.email %></td>
         <td><%= lead.firstname %></td>
         <td><%= lead.lastname %></td>
         <td><%= lead.address %></td>
+        <td><%= lead.latitude %></td>
+        <td><%= lead.longitude %></td>
         <td><%= lead.zip %></td>
         <td><%= lead.phone %></td>
         <td><%= lead.created_at.to_formatted_s(:long)     %></td>

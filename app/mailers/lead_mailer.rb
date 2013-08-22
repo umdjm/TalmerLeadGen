@@ -2,8 +2,8 @@ class LeadMailer < ActionMailer::Base
   default from: "dmartin@marketingassociates.com"
  
   def lead_notice(lead)
+   
     @lead = lead
-
 	mail_to = Subscription.pluck(:email).join(', ')
     notification = @lead.notifications.create(status: 'Unsent', recipients: mail_to)
 	begin

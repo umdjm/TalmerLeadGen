@@ -8,6 +8,7 @@ border-collapse:collapse;
 
     <table style="border: 1px solid black;">
       <thead>
+        <th>Branch</th>
         <th>Email</th>
         <th>Firstname</th>
         <th>Lastname</th>
@@ -17,6 +18,7 @@ border-collapse:collapse;
         <th>Created Date</th>
       </thead>
       <tr>
+        <td><%= @lead.branch %></td>
         <td><%= @lead.email %></td>
         <td><%= @lead.firstname %></td>
         <td><%= @lead.lastname %></td>

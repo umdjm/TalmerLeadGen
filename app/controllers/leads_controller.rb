@@ -43,6 +43,10 @@ class LeadsController < ApplicationController
   # POST /leads.json
   def create
     @lead = Lead.new(params[:lead])
+    
+    branch = Branch.near(@lead.address, 200).limit(1)
+    @lead.branch = branch.first.location
+
     if Referrer.where(url: request.referrer).length == 0
       render json: "{ 'error': 'Bad Referrer' 'referrer' : '" + request.referrer + "'}", status: :unprocessable_entity 
     else    

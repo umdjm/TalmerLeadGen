@@ -1,4 +1,7 @@
 TalmerLeadgen::Application.routes.draw do
+  resources :branches
+
+
   resources :subscriptions
 
 
