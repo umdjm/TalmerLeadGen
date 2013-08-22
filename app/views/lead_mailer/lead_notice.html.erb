@@ -1,6 +1,29 @@
+<style>
+table,th,td
+{
+border:1px solid black;
+border-collapse:collapse;
+}
+</style>
 
-
-<p><%= @lead.firstname  %>,</p>
-
-<p>Thank you for registering!</p>
+    <table style="border: 1px solid black;">
+      <thead>
+        <th>Email</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Address</th>
+        <th>Zip</th>
+        <th>Phone</th>
+        <th>Created Date</th>
+      </thead>
+      <tr>
+        <td><%= @lead.email %></td>
+        <td><%= @lead.firstname %></td>
+        <td><%= @lead.lastname %></td>
+        <td><%= @lead.address %></td>
+        <td><%= @lead.zip %></td>
+        <td><%= @lead.phone %></td>
+        <td><%= @lead.created_at.to_formatted_s(:long)     %></td>
+      </tr>
+    </table>
 

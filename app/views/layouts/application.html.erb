@@ -15,19 +15,34 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to "Talmer Lead Generation", root_path,:class => "brand" %>
+          <%= link_to "Talmer Leads", root_path,:class => "brand" %>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
                <% if @current_user %>
-              		Logged in as | <%= @current_user.email %> | <%= link_to "Logout", logout_path %>
+              		Logged in as <%= @current_user.email %> | <%= link_to "Logout", logout_path %>
 				<% else %>
 				  <%= link_to "Sign Up", signup_path %> or
 				  <%= link_to "Log In", login_path %>
 				<% end %>
             </p>
             <ul class="nav">
-              <li class="active">
-                <%= link_to "Home", root_path%>
+              <li >
+                <%= link_to "Leads", root_path%>
+              </li>
+              <li >
+                <%= link_to "Emails", notifications_path%>
+              </li>
+              <li >
+                <%= link_to "Subscriptions", subscriptions_path%>
+              </li>
+              <li >
+                <%= link_to "Form", example_path%>
+              </li>
+              <li >
+                <%= link_to "Permissions", permissions_path%>
+              </li>
+              <li >
+                <%= link_to "Signup", signup_path%>
               </li>
             </ul>
           </div>

@@ -6,6 +6,9 @@
         <th>Email</th>
         <th>Firstname</th>
         <th>Lastname</th>
+        <th>Address</th>
+        <th>Zip</th>
+        <th>Phone</th>
         <th>Created Date</th>
         <th>Edit</th>
         <th>Destroy</th>
@@ -16,6 +19,9 @@
         <td><%= lead.email %></td>
         <td><%= lead.firstname %></td>
         <td><%= lead.lastname %></td>
+        <td><%= lead.address %></td>
+        <td><%= lead.zip %></td>
+        <td><%= lead.phone %></td>
         <td><%= lead.created_at.to_formatted_s(:long)     %></td>
         <td><%= link_to 'Edit', edit_lead_path(lead) %></td>
         <td><%= link_to 'Destroy', lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>

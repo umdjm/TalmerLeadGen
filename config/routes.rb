@@ -1,11 +1,17 @@
 TalmerLeadgen::Application.routes.draw do
+  resources :subscriptions
+
+
   get "sessions/new"
-  get "static_pages/index"
+  get "static_pages/index", as:'example'
+  get "notifications/index", as:'notifications'
+  get 'referrers/index', as: 'permissions'
 
   resources :leads
   resources :users
   resources :sessions
   resources :referrers
+  resources :subscriptions
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
