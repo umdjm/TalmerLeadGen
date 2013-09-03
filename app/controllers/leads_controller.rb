@@ -44,7 +44,7 @@ class LeadsController < ApplicationController
   def create
     @lead = Lead.new(params[:lead])
     
-    branch = Branch.near(@lead.address, 50000).limit(1)
+    branch = Branch.near(@lead.full_address, 50000).limit(1)
     @lead.branch = branch.first.location unless branch.first.nil?
 
     if Referrer.where(url: request.referrer).length == 0

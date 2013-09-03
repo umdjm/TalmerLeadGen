@@ -13,7 +13,6 @@ border-collapse:collapse;
         <th>First Name</th>
         <th>Last Name</th>
         <th>Address</th>
-        <th>Zip</th>
         <th>Phone</th>
         <th>Created Date</th>
       </thead>
@@ -22,8 +21,7 @@ border-collapse:collapse;
         <td><%= @lead.email %></td>
         <td><%= @lead.firstname %></td>
         <td><%= @lead.lastname %></td>
-        <td><%= @lead.address %></td>
-        <td><%= @lead.zip %></td>
+        <td><%= @lead.full_address %></td>
         <td><%= @lead.phone %></td>
         <td><%= @lead.created_at.to_formatted_s(:long)     %></td>
       </tr>
