@@ -5,6 +5,10 @@
   <%= @referrer.url %>
 </p>
 
+<p>
+  <b>Return Url:</b>
+  <%= @referrer.return_url %>
+</p>
 
 <%= link_to 'Edit', edit_referrer_path(@referrer) %> |
 <%= link_to 'Back', referrers_path %>

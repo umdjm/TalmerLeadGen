@@ -47,13 +47,14 @@ class LeadsController < ApplicationController
     branch = Branch.near(@lead.full_address, 50000).limit(1)
     @lead.branch = branch.first.location unless branch.first.nil?
 
-    if Referrer.where(url: request.referrer).length == 0
+    referrer = Referrer.where(url: request.referrer).first
+    if referrer.nil?
       render json: "{ 'error': 'Bad Referrer' 'referrer' : '" + request.referrer + "'}", status: :unprocessable_entity 
     else    
       respond_to do |format|
         if @lead.save
           LeadMailer.lead_notice(@lead).deliver
-          format.html { redirect_to @lead, notice: 'Lead was successfully created.' }
+          format.html { redirect_to referrer.return_url }
           format.json { render json: @lead, status: :created, location: @lead }
         else
           format.html { render action: "new" }

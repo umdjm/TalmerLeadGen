@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Url</th>
+    <th>Return Url</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,6 +12,7 @@
 <% @referrers.each do |referrer| %>
   <tr>
     <td><%= referrer.url %></td>
+    <td><%= referrer.return_url %></td>
     <td><%= link_to 'Show', referrer %></td>
     <td><%= link_to 'Edit', edit_referrer_path(referrer) %></td>
     <td><%= link_to 'Destroy', referrer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

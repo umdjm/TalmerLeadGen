@@ -11,6 +11,7 @@
         <th>Latitude</th>
         <th>Longitude</th>
         <th>Phone</th>
+        <th>Answers</th>
         <th>Created Date</th>
         <th>Edit</th>
         <th>Destroy</th>
@@ -26,6 +27,7 @@
         <td><%= lead.latitude %></td>
         <td><%= lead.longitude %></td>
         <td><%= lead.phone %></td>
+        <td><%= lead.answer_list %></td>
         <td><%= lead.created_at.to_formatted_s(:long)     %></td>
         <td><%= link_to 'Edit', edit_lead_path(lead) %></td>
         <td><%= link_to 'Destroy', lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
