@@ -47,9 +47,10 @@ class LeadsController < ApplicationController
     branch = Branch.near(@lead.full_address, 50000).limit(1)
     @lead.branch = branch.first.location unless branch.first.nil?
 
-    referrer = Referrer.where(url: request.referrer).first
+    url = URI(request.referrer).host + URI(request.referrer).path
+    referrer = Referrer.where(url: url).first
     if referrer.nil?
-      render json: "{ 'error': 'Bad Referrer' 'referrer' : '" + request.referrer + "'}", status: :unprocessable_entity 
+      render json: "{ 'error': 'Bad Referrer' 'referrer' : '" + url + "'}", status: :unprocessable_entity 
     else    
       respond_to do |format|
         if @lead.save

@@ -1,9 +1,9 @@
 class Lead < ActiveRecord::Base
-  attr_accessible :email, :firstname, :lastname, :address, :zip, :phone, :created_at, :latitude, :longitude, :branch, :city, :state, :answers
+  attr_accessible :email, :firstname, :lastname, :address, :zip, :phone, :created_at, :latitude, :longitude, :branch, :city, :state, :answers, :source
   has_many :notifications
   serialize :answers, JSON
 
-  geocoded_by :address
+  geocoded_by :full_address
   after_validation :geocode, :if => :address_changed? ||  :zip_changed? || :state_changed? || :city_changed?
 
   def full_address
