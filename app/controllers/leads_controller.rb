@@ -50,7 +50,10 @@ class LeadsController < ApplicationController
     url = URI(request.referrer).host + URI(request.referrer).path
     referrer = Referrer.where(url: url).first
     if referrer.nil?
-      render json: "{ 'error': 'Bad Referrer' 'referrer' : '" + url + "'}", status: :unprocessable_entity 
+      options = Referrer.pluck(:url).join("; ")
+      errormessage = "{ 'error': 'Bad Referrer', 'referrer' : '" + url + "', 'options' : '" + options + "'}"
+      Errorlog.create(url: url, errormessage: errormessage, leaddata: params.to_s)
+      render json: errormessage, status: :unprocessable_entity 
     else    
       respond_to do |format|
         if @lead.save

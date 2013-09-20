@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  url: MyString
+  errormessage: MyString
+  leaddata: MyString
+
+two:
+  url: MyString
+  errormessage: MyString
+  leaddata: MyString

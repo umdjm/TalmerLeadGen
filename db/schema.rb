@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130904162008) do
+ActiveRecord::Schema.define(:version => 20130920014020) do
 
   create_table "branches", :force => true do |t|
     t.string   "location"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(:version => 20130904162008) do
     t.float    "longitude"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "errorlogs", :force => true do |t|
+    t.string   "url"
+    t.string   "errormessage"
+    t.string   "leaddata"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "leads", :force => true do |t|
