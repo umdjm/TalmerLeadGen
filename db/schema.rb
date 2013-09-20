@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130920015157) do
+ActiveRecord::Schema.define(:version => 20130920021149) do
 
   create_table "branches", :force => true do |t|
     t.string   "location"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20130920015157) do
 
   create_table "errorlogs", :force => true do |t|
     t.string   "url"
-    t.string   "errormessage"
+    t.string   "errormessage", :limit => 10000
     t.string   "leaddata",     :limit => 10000
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
