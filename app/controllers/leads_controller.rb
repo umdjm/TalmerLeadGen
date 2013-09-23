@@ -1,7 +1,7 @@
 class LeadsController < ApplicationController
 
   skip_before_filter :verify_authenticity_token, :only => [:create]
-  before_filter :authorize
+  before_filter :authorize, :except => [:create]
 
   def index
     @leads = Lead.all
@@ -52,7 +52,7 @@ class LeadsController < ApplicationController
     if referrer.nil?
       options = Referrer.pluck(:url).join("; ")
       errormessage = "{ 'error': 'Bad Referrer', 'referrer' : '" + url + "', 'options' : '" + options + "'}"
-      Errorlog.create(url: url, errormessage: errormessage, leaddata: params.to_s)
+      Errorlog.create(url: url, errormessage: errormessage, leaddata: params.to_s.first)
       render json: errormessage, status: :unprocessable_entity 
     else    
       respond_to do |format|
