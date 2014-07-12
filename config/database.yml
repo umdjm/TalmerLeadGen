@@ -3,13 +3,9 @@ development:
   encoding: unicode
   database: talmer_leadgen_development
   pool: 5
-  username: dj
-  password: jordan
 
 test:
   adapter: postgresql
   encoding: unicode
   database: talmer_leadgen_test
   pool: 5
-  username: dj
-  password: jordan
